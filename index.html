@@ -1,0 +1,97 @@
+
+<DOCTYPE html!>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title> Ruben Clicker Beta version</title>
+    <style>
+      #rubenButton {
+        height: 50vh;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+        cursor: pointer;
+      }
+      #ouch {
+        font-size: 10vh;
+        position: fixed;
+        top: 30%;
+        left: 60%;
+        z-index: 4;
+      }
+      #rubenButtonDiv {
+        display: grid;
+        place-items: center;
+      }
+      #rebirthbutton {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        font-size: 10vh;
+        font-family: "Comic Sans MS", Courier New, "Garamond";
+        z-index: 2;
+      }
+      p {
+        font-size: 4vh;
+        z-index: 3;
+      }
+    </style>
+  </head>
+  <body>
+    <p><strong>Welcome to the beta version of Ruben Clicker!</strong></p>
+    <p><strong>High score:</strong> 15025283 clicks <em>by enormous_fortune in level 2197</em></p>
+    <p><strong>Number of clicks:</strong></p>
+    <p id="clickDisplay">Preparing click counter...</p>
+    <p><strong>Your level:</strong></p>
+    <p id="levelDisplay">Preparing user levels...</p>
+    <button id="rebirthButton" onclick="rebirth()">Preparing rebirth...</button>
+    <div id="rubenButtonDiv">  
+      <img src="rubenClicker.png" id="rubenButton" alt="Ruben" title="Click to gain one click!" onclick="rubenBeaten()">
+    </div>
+    <p id="ouch" hidden>OUCH!</p>
+    <script>
+      let clickCount = 0;
+      let rebirthEnabled = false;
+      let leftToRebirth = 2000 - clickCount;
+      let rebirthCount = 0;
+      let userLevel = 1 + rebirthCount;
+      function rubenBeaten() {
+        clickCount += 1 * userLevel
+
+        document.getElementById("clickDisplay").innerHTML = clickCount
+
+        document.getElementById("ouch").hidden = false
+        setTimeout(hideOuch, 100)
+
+        leftToRebirth = 2000 - clickCount
+        if (clickCount < 2000) {
+          document.getElementById("rebirthButton").innerHTML = `${leftToRebirth} clicks left to rebirth!`
+          rebirthEnabled = false;
+          document.getElementById("rebirthButton").style.cursor = "not-allowed"
+        } else {
+          document.getElementById("rebirthButton").innerHTML = "Click to rebirth!"
+          rebirthEnabled = true;
+          document.getElementById("rebirthButton").style.cursor = "pointer"
+        }
+
+        document.getElementById("levelDisplay").innerHTML = userLevel
+      }
+      
+      function hideOuch() {
+       document.getElementById("ouch").hidden = true   
+      }
+
+      function rebirth() {
+        if (rebirthEnabled === true) {  
+          rebirthCount++
+          userLevel = 1 + rebirthCount
+          clickCount = 0
+          rebirthEnabled = false
+          document.getElementById("levelDisplay").innerHTML = userLevel
+          document.getElementById("clickDisplay").innerHTML = clickCount
+        }
+      }
+    </script>
+  </body>
