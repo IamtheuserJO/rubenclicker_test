@@ -1,4 +1,3 @@
-
 <DOCTYPE html!>
 <html lang="en">
   <head>
@@ -37,22 +36,40 @@
         font-size: 4vh;
         z-index: 3;
       }
+      #hannesButton {
+        font-size: 6vh;
+        position: fixed;
+        top: 10;
+        right: 10;
+        font-family: "Comic Sans MS", Courier New, "Garamond";
+      }
     </style>
   </head>
   <body>
     <p><strong>Welcome to the beta version of Ruben Clicker!</strong></p>
+    
     <p><strong>High score:</strong> 15025283 clicks <em>by enormous_fortune in level 2197</em></p>
+    
     <p><strong>Number of clicks:</strong></p>
+    
     <p id="clickDisplay">Preparing click counter...</p>
+    
     <p><strong>Your level:</strong></p>
+    
     <p id="levelDisplay">Preparing user levels...</p>
+    
     <button id="rebirthButton" onclick="rebirth()">Preparing rebirth...</button>
+    
     <div id="rubenButtonDiv">  
       <img src="rubenClicker.png" id="rubenButton" alt="Ruben" title="Click to gain one click!" onclick="rubenBeaten()">
     </div>
+    
     <p id="ouch" hidden>OUCH!</p>
+    
+    <button id="hannesButton" onclick="hannesSwitcher()">Preparing Hannes mode...</button>
+    
     <script>
-      let clickCount = 0;
+      let clickCount = 9990;
       let rebirthEnabled = false;
       let leftToRebirth = 2000 - clickCount;
       let rebirthCount = 0;
@@ -75,6 +92,11 @@
           rebirthEnabled = true;
           document.getElementById("rebirthButton").style.cursor = "pointer"
         }
+        if (clickCount < 10000) {
+          document.getElementById("hannesButton").innerHTML = "You need more clicks for Hannes Mode."
+        } else {
+          document.getElementById("hannesButton").innerHTML = "Click to enable Hannes mode!"
+        }
 
         document.getElementById("levelDisplay").innerHTML = userLevel
       }
@@ -93,5 +115,12 @@
           document.getElementById("clickDisplay").innerHTML = clickCount
         }
       }
+
+      function hannesSwitcher() {
+        if (clickCount >= 10000) {
+          document.getElementById("rubenButton").src = "hannesclicker.png"
+        }
+      }
+      
     </script>
   </body>
