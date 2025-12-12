@@ -1,8 +1,9 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title> Ruben Clicker Test version</title>
+    <title> Rubenclicker Beta version</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <style>
       #rubenButton {
@@ -48,7 +49,7 @@
     </style>
   </head>
   <body>
-    <p><strong>Welcome to the test version of Ruben Clicker!</strong></p>
+    <p><strong>Welcome to the beta version of Rubenclicker!</strong></p>
     
     <p><strong>High score:</strong><br>15025283 clicks <em>by enormous_fortune in level 2197</em></p>
     
@@ -71,11 +72,12 @@
     <button id="hannesButton" onclick="hannesSwitcher()">Preparing Hannes mode...</button>
     
     <script>
-      let clickCount = 9990;
+      let clickCount = 0;
       let rebirthEnabled = false;
       let leftToRebirth = 2000 - clickCount;
       let rebirthCount = 0;
       let userLevel = 1 + rebirthCount;
+      const ouchAudio = new Audio("RubenClickerOuch.mp3")
       function rubenBeaten() {
         clickCount += 1 * userLevel
 
@@ -95,12 +97,13 @@
           document.getElementById("rebirthButton").style.cursor = "pointer"
         }
         if (clickCount < 10000) {
-          document.getElementById("hannesButton").innerHTML = "You need more clicks for Hannes Mode."
+          document.getElementById("hannesButton").innerHTML = "You need more clicks for Hannes Mode"
         } else {
           document.getElementById("hannesButton").innerHTML = "Click to enable Hannes mode!"
         }
 
         document.getElementById("levelDisplay").innerHTML = userLevel
+        ouchAudio.play();
       }
       
       function hideOuch() {
