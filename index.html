@@ -69,15 +69,19 @@
     <p id="ouch" hidden>OUCH!</p>
     
     <button id="hannesButton" onclick="hannesSwitcher()">Preparing Hannes mode...</button>
-    
+
+    <p><strong>Clicks per click:</strong><span id="clickperclickdisplay">preparing clicks...</span></p>
     <script>
       let clickCount = 9990;
       let rebirthEnabled = false;
       let leftToRebirth = 2000 - clickCount;
       let rebirthCount = 0;
+      let accountLevel = 1;
+      let upgradeCount = 0;
+      let clicksPerClick = 1 * accountLevel * (1 + rebirthCount) + (10 * upgradeCount)
       const ouchAudio = new Audio("RubenClickerOuch.mp3")
       function rubenBeaten() {
-        clickCount += 1 * (rebirthCount + 1)
+        clickCount += 1 * clicksPerClick
 
         document.getElementById("clickDisplay").innerHTML = clickCount
 
@@ -101,6 +105,7 @@
         }
 
         document.getElementById("levelDisplay").innerHTML = rebirthCount + 1
+        document.getElementByIg("clickperclickdisplay").innerHTML = clicksPerClick
         ouchAudio.play();
       }
       
@@ -114,6 +119,7 @@
           clickCount = 0
           rebirthEnabled = false
           leftToRebirth = 2000 - clickCount
+          clicksPerClick = 1 * accountLevel * (1 + rebirthCount) + (10 * upgradeCount)
           document.getElementById("levelDisplay").innerHTML = rebirthCount + 1
           document.getElementById("clickDisplay").innerHTML = clickCount
           document.getElementById("rebirthButton").innerHTML = `${leftToRebirth} clicks left to rebirth!`
