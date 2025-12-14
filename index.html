@@ -70,7 +70,7 @@
     
     <button id="hannesButton" onclick="hannesSwitcher()">Preparing Hannes mode...</button>
 
-    <p><strong>Clicks per click:</strong><span id="clickperclickdisplay">preparing clicks...</span></p>
+    <p><strong>Clicks per click: </strong><span id="clickperclickdisplay">preparing clicks...</span></p>
     <script>
       let clickCount = 9990;
       let rebirthEnabled = false;
@@ -105,7 +105,7 @@
         }
 
         document.getElementById("levelDisplay").innerHTML = rebirthCount + 1
-        document.getElementByIg("clickperclickdisplay").innerHTML = clicksPerClick
+        document.getElementById("clickperclickdisplay").innerHTML = clicksPerClick
         ouchAudio.play();
       }
       
