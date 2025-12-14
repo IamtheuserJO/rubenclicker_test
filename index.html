@@ -77,7 +77,7 @@
       let rebirthCount = 0;
       const ouchAudio = new Audio("RubenClickerOuch.mp3")
       function rubenBeaten() {
-        clickCount += 1 * userLevel
+        clickCount += 1 * (rebirthCount + 1)
 
         document.getElementById("clickDisplay").innerHTML = clickCount
 
@@ -113,8 +113,9 @@
           rebirthCount++
           clickCount = 0
           rebirthEnabled = false
-          document.getElementById("levelDisplay").innerHTML = userLevel
+          document.getElementById("levelDisplay").innerHTML = rebirthCount + 1
           document.getElementById("clickDisplay").innerHTML = clickCount
+          document.getElementById("rebirthButton").innerHTML = `${leftToRebirth} clicks left to rebirth!`
         }
       }
 
