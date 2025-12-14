@@ -1,9 +1,8 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title> Rubenclicker Beta version</title>
+    <title> Rubenclicker test version</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <style>
       #rubenButton {
@@ -49,7 +48,7 @@
     </style>
   </head>
   <body>
-    <p><strong>Welcome to the beta version of Rubenclicker!</strong></p>
+    <p><strong>Welcome to the test version of Rubenclicker!</strong></p>
     
     <p><strong>High score:</strong><br>15025283 clicks <em>by enormous_fortune in level 2197</em></p>
     
@@ -72,11 +71,10 @@
     <button id="hannesButton" onclick="hannesSwitcher()">Preparing Hannes mode...</button>
     
     <script>
-      let clickCount = 0;
+      let clickCount = 9990;
       let rebirthEnabled = false;
       let leftToRebirth = 2000 - clickCount;
       let rebirthCount = 0;
-      let userLevel = 1 + rebirthCount;
       const ouchAudio = new Audio("RubenClickerOuch.mp3")
       function rubenBeaten() {
         clickCount += 1 * userLevel
@@ -102,7 +100,7 @@
           document.getElementById("hannesButton").innerHTML = "Click to enable Hannes mode!"
         }
 
-        document.getElementById("levelDisplay").innerHTML = userLevel
+        document.getElementById("levelDisplay").innerHTML = rebirthCount + 1
         ouchAudio.play();
       }
       
@@ -113,7 +111,6 @@
       function rebirth() {
         if (rebirthEnabled === true) {  
           rebirthCount++
-          userLevel = 1 + rebirthCount
           clickCount = 0
           rebirthEnabled = false
           document.getElementById("levelDisplay").innerHTML = userLevel
