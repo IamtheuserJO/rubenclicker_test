@@ -71,6 +71,9 @@
     <button id="hannesButton" onclick="hannesSwitcher()">Preparing Hannes mode...</button>
 
     <p><strong>Clicks per click: </strong><span id="clickperclickdisplay">preparing clicks...</span></p>
+
+    <button id="upgradeButton">Preparing upgrade</button>
+    
     <script>
       let clickCount = 9990;
       let rebirthEnabled = false;
@@ -123,6 +126,7 @@
           document.getElementById("levelDisplay").innerHTML = rebirthCount + 1
           document.getElementById("clickDisplay").innerHTML = clickCount
           document.getElementById("rebirthButton").innerHTML = `${leftToRebirth} clicks left to rebirth!`
+          document.getElementById("clickperclickdisplay").innerHTML = clicksPerClick
         }
       }
 
