@@ -90,17 +90,21 @@
       let rebirthCount = 0;
       let accountLevel = 1;
       let upgradeCount = 0;
-      let clicksPerClick = 1 * accountLevel * (1 + rebirthCount) + (10 * upgradeCount)
+      let clicksPerClick = 1 * accountLevel * (1 + rebirthCount) + (10 * upgradeCount);
+      let upgradeAvilaible = false;
       const ouchAudio = new Audio("RubenClickerOuch.mp3")
+      
       function rubenBeaten() {
         clickCount += 1 * clicksPerClick
 
         document.getElementById("clickDisplay").innerHTML = clickCount
-
+        document.getElementById("upgradeButton").innerHTML = "Upgrade 100:-"
         document.getElementById("ouch").hidden = false
+       
         setTimeout(hideOuch, 100)
 
         leftToRebirth = 2000 - clickCount
+        
         if (clickCount < 2000) {
           document.getElementById("rebirthButton").innerHTML = `${leftToRebirth} clicks left to rebirth!`
           rebirthEnabled = false;
@@ -110,15 +114,23 @@
           rebirthEnabled = true;
           document.getElementById("rebirthButton").style.cursor = "pointer"
         }
+        
         if (clickCount < 10000) {
           document.getElementById("hannesButton").innerHTML = "You need more clicks for Hannes Mode"
         } else {
           document.getElementById("hannesButton").innerHTML = "Click to enable Hannes mode!"
         }
 
+        if (clickCount < 100) {
+          upgradeAvilaible = false
+        } else {
+          upgradeAvilaible = true
+        }
+
         document.getElementById("levelDisplay").innerHTML = rebirthCount + 1
         document.getElementById("clickperclickdisplay").innerHTML = clicksPerClick
         ouchAudio.play();
+        
       }
       
       function hideOuch() {
@@ -129,6 +141,7 @@
         if (rebirthEnabled === true) {  
           rebirthCount++
           clickCount = 0
+          upgradeCount = 0
           rebirthEnabled = false
           leftToRebirth = 2000 - clickCount
           clicksPerClick = 1 * accountLevel * (1 + rebirthCount) + (10 * upgradeCount)
