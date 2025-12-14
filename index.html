@@ -113,6 +113,7 @@
           rebirthCount++
           clickCount = 0
           rebirthEnabled = false
+          leftToRebirth = 2000 - clickCount
           document.getElementById("levelDisplay").innerHTML = rebirthCount + 1
           document.getElementById("clickDisplay").innerHTML = clickCount
           document.getElementById("rebirthButton").innerHTML = `${leftToRebirth} clicks left to rebirth!`
