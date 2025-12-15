@@ -81,7 +81,7 @@
 
     <p><strong>Clicks per click: </strong><span id="clickperclickdisplay">preparing clicks...</span></p>
 
-    <button id="upgradeButton">Preparing upgrade</button>
+    <button id="upgradeButton" onclick="upgrade()">Preparing upgrade</button>
     
     <script>
       let clickCount = 9990;
@@ -90,7 +90,7 @@
       let rebirthCount = 0;
       let accountLevel = 1;
       let upgradeCount = 0;
-      let clicksPerClick = 1 * accountLevel * (1 + rebirthCount) + (10 * upgradeCount);
+      let clicksPerClick = 1 * accountLevel * (1 + rebirthCount) + (2 * upgradeCount);
       let upgradeAvilaible = false;
       const ouchAudio = new Audio("RubenClickerOuch.mp3")
       
@@ -144,7 +144,7 @@
           upgradeCount = 0
           rebirthEnabled = false
           leftToRebirth = 2000 - clickCount
-          clicksPerClick = 1 * accountLevel * (1 + rebirthCount) + (10 * upgradeCount)
+          clicksPerClick = 1 * accountLevel * (1 + rebirthCount) + (2 * upgradeCount)
           document.getElementById("levelDisplay").innerHTML = rebirthCount + 1
           document.getElementById("clickDisplay").innerHTML = clickCount
           document.getElementById("rebirthButton").innerHTML = `${leftToRebirth} clicks left to rebirth!`
@@ -157,6 +157,21 @@
           document.getElementById("rubenButton").src = "hannesclicker.png"
           document.getElementById("hannesButton").hidden = "true"
         }
+      }
+
+      function upgrade() {
+        if (clickCount < 100) {
+          document.getElementById("upgradeButton").innerHTML = "More clicks needed"
+          setTimeout(1000, displayUpgrade)
+        } else {
+          clickCount -= 100
+          upgradeCount++
+          clicksPerClick = 1 * accountLevel * (1 + rebirthCount) + (2 * upgradeCount)
+        }
+      }
+
+      function displayUpgrade() {
+        document.getElementById("upgradeButton").innerHTML = "Upgrade 100:-"
       }
       
     </script>
