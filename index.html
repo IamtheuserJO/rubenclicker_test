@@ -172,6 +172,8 @@
         }
         document.getElementById("clickperclickdisplay").innerHTML = clicksPerClick
         document.getElementById("clickDisplay").innerHTML = clickCount
+        leftToRebirth = clicksForRebirth - clickCount
+        document.getElementById("rebirthButton").innerHTML = `${leftToRebirth} clicks left to rebirth!`
       }
 
       function displayUpgrade() {
