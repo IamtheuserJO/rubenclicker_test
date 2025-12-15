@@ -170,6 +170,8 @@
           upgradeCount++
           clicksPerClick = 1 * accountLevel * (1 + rebirthCount) + (2 * upgradeCount)
         }
+        document.getElementById("clickperclickdisplay").innerHTML = clicksPerClick
+        document.getElementById("clickDisplay").innerHTML = clickCount
       }
 
       function displayUpgrade() {
