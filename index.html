@@ -83,8 +83,10 @@
 
     <button id="upgradeButton" onclick="upgrade()">Preparing upgrade</button>
 
-    <audio autoplay loop><source src="Dance of the Sugar Plum Fairy.mp3" type="audio/mpeg"></audio>
-    
+    <audio loop id="musicFile">
+      <source src="Dance of the Sugar Plum Fairy.mp3" type="audio/mpeg">
+    </audio>
+    <button id="musicButton" onclick="playMusic()">Play the music</button>
     <script>
       let clickCount = 9990;
       let rebirthEnabled = false;
@@ -181,7 +183,10 @@
       function displayUpgrade() {
         document.getElementById("upgradeButton").innerHTML = "Upgrade 100:-"
       }
-      
+
+      function playMusic() {
+        document.getElementById("musicFile").play();
+      }
     </script>
   </body>
 </html>
