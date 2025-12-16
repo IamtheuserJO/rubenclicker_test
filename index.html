@@ -176,8 +176,15 @@
         }
         document.getElementById("clickperclickdisplay").innerHTML = clicksPerClick
         document.getElementById("clickDisplay").innerHTML = clickCount
-        leftToRebirth = clicksForRebirth - clickCount
-        document.getElementById("rebirthButton").innerHTML = `${leftToRebirth} clicks left to rebirth!`
+        if (clickCount < clicksForRebirth) {
+          document.getElementById("rebirthButton").innerHTML = `${leftToRebirth} clicks left to rebirth!`
+          rebirthEnabled = false;
+          document.getElementById("rebirthButton").style.cursor = "not-allowed"
+        } else {
+          document.getElementById("rebirthButton").innerHTML = "Click to rebirth!"
+          rebirthEnabled = true;
+          document.getElementById("rebirthButton").style.cursor = "pointer"
+        }
       }
 
       function displayUpgrade() {
