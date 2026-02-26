@@ -194,6 +194,14 @@
       function playMusic() {
         document.getElementById("musicFile").play();
       }
+
+      document.addEventListener("keydown", (event) => {
+        const keyName = event.key;
+  
+        if (keyName === "Enter") {
+          console.log("Don't try that!")
+        }
+      });
     </script>
   </body>
 </html>
