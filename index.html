@@ -94,7 +94,7 @@
     <button id="musicButton" onclick="playMusic()">Play music 1</button>
     <button id="musicButton2" onclick="playMusic2()">Play music 2</button>
 
-    <p id="rubenID">preparing RubenID...</p>
+    <p id="rubenIDdisplay">preparing RubenID...</p>
     
     <script>
       let clickCount = 9990;
@@ -107,6 +107,15 @@
       let upgradeAvilaible = false;
       let clicksForRebirth = 2000;
       const ouchAudio = new Audio("RubenClickerOuch.mp3")
+
+      function randomID(max) {
+        return Math.floor(Math.random() * max)
+      }
+
+      if (localStorage.getItem('rubenID') == null) {
+        localStorage.setItem('rubenID', randomID(2**32))
+        document.getElementById("rubenIDdisplay").innerHTML = 'Your rubenID is ${rubenID}. Please send this in an email to the developer.'
+      }
       
       function rubenBeaten() {
         clickCount += 1 * clicksPerClick
