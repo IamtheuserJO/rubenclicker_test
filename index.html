@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title> Rubenclicker test version 4.1.1</title>
+    <title> Rubenclicker test version 4.1.2</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <style>
       #rubenButton {
@@ -118,7 +118,7 @@
       
       let rubenID = localStorage.getItem('rubenID')
 
-      document.getElementById("rubenIDdisplay").innerHTML = 'Your rubenID is ${rubenID}. Please send this in an email to the developer.'
+      document.getElementById("rubenIDdisplay").innerHTML = `Your rubenID is ${rubenID}. Please send this in an email to the developer.`
       
       function rubenBeaten() {
         clickCount += 1 * clicksPerClick
