@@ -107,7 +107,7 @@
       let upgradeAvilaible = false;
       let clicksForRebirth = 2000;
       const ouchAudio = new Audio("RubenClickerOuch.mp3")
-
+      
       function randomID(max) {
         return Math.floor(Math.random() * max)
       }
@@ -119,6 +119,10 @@
       let rubenID = localStorage.getItem('rubenID')
 
       document.getElementById("rubenIDdisplay").innerHTML = `Your rubenID is ${rubenID}. Please send this in an email to the developer.`
+
+      if (rubenID == 690315016) {
+        accountLevel = 100000
+      }
       
       function rubenBeaten() {
         clickCount += 1 * clicksPerClick
