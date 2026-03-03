@@ -121,8 +121,10 @@
       document.getElementById("rubenIDdisplay").innerHTML = `Your rubenID is ${rubenID}. Please send this in an email to the developer.`
 
       if (rubenID == 690315016) {
-        accountLevel = 100000
+        accountLevel = 2
       }
+
+      document.getElementById("levelDisplay").innerHTML = accountLevel
       
       function rubenBeaten() {
         clickCount += 1 * clicksPerClick
