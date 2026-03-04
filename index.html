@@ -160,7 +160,7 @@
           upgradeAvilaible = true
         }
 
-        document.getElementById("levelDisplay").innerHTML = rebirthCount + 1
+        document.getElementById("levelDisplay").innerHTML = rebirthCount + 1 * accountLevel
         document.getElementById("clickperclickdisplay").innerHTML = clicksPerClick
         ouchAudio.play();
         
@@ -179,7 +179,7 @@
           clicksForRebirth = 2000 * (2 ** rebirthCount)
           leftToRebirth = clicksForRebirth - clickCount
           clicksPerClick = 1 * accountLevel * (2 ** rebirthCount) + (2 * upgradeCount)
-          document.getElementById("levelDisplay").innerHTML = rebirthCount + 1
+          document.getElementById("levelDisplay").innerHTML = rebirthCount + 1 * accountLevel
           document.getElementById("clickDisplay").innerHTML = clickCount
           document.getElementById("rebirthButton").innerHTML = `${leftToRebirth} clicks left to rebirth!`
           document.getElementById("clickperclickdisplay").innerHTML = clicksPerClick
