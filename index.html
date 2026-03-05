@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title> Rubenclicker test version 4.4.4.4</title>
+    <title> Rubenclicker test version 4.4.5</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <style>
       #rubenButton {
@@ -208,6 +208,9 @@
         }
         document.getElementById("clickperclickdisplay").innerHTML = clicksPerClick
         document.getElementById("clickDisplay").innerHTML = clickCount
+        
+        leftToRebirth = clicksForRebirth - clickCount
+        
         if (clickCount < clicksForRebirth) {
           document.getElementById("rebirthButton").innerHTML = `${leftToRebirth} clicks left to rebirth!`
           rebirthEnabled = false;
@@ -217,6 +220,13 @@
           rebirthEnabled = true;
           document.getElementById("rebirthButton").style.cursor = "pointer"
         }
+        
+        if (clickCount < 10000) {
+          document.getElementById("hannesButton").innerHTML = "You need more clicks for Hannes Mode"
+        } else {
+          document.getElementById("hannesButton").innerHTML = "Click to enable Hannes mode!"
+        }
+
       }
 
       function displayUpgrade() {
