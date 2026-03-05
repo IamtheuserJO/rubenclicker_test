@@ -116,10 +116,8 @@
       }
 
       if (localStorage.getItem('rubenID') == null) {
-        localStorage.setItem('rubenID', randomID(2))
+        localStorage.setItem('rubenID', randomID(2**256))
       }
-
-      localStorage.setItem('rubenID', 1)
       
       let rubenID = localStorage.getItem('rubenID')
 
