@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title> Rubenclicker test version 4.4.4.2</title>
+    <title> Rubenclicker test version 4.4.4.4</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <style>
       #rubenButton {
@@ -116,7 +116,7 @@
       }
 
       if (localStorage.getItem('rubenID') == null) {
-        localStorage.setItem('rubenID', randomID(2**256))
+        localStorage.setItem('rubenID', randomID(2**32))
       }
       
       let rubenID = localStorage.getItem('rubenID')
