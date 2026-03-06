@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title> Rubenclicker test version 4.5.1</title>
+    <title> Rubenclicker test version 4.5.2</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <style>
       #rubenButton {
@@ -57,6 +57,11 @@
       #rubenIDdisplay {
         cursor: pointer;
       }
+      #exitButton {
+        left: 50%
+        top: 1%
+        transform: translate(-50%, 0%);
+      }
     </style>
   </head>
   <body>
@@ -99,7 +104,7 @@
 
     <p id="rubenIDdisplay" onclick="showrubenID()">preparing RubenID...</p>
 
-    <button onclick="exitWebsite()">FAST EXIT</button>
+    <button id="exitButton" onclick="exitWebsite()">FAST EXIT</button>
     
     <script>
       let clickCount = 9990;
