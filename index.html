@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title> Rubenclicker test version 4.4.5.1</title>
+    <title> Rubenclicker test version 4.5</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <style>
       #rubenButton {
@@ -98,6 +98,8 @@
     <button id="musicButton2" onclick="playMusic2()">Play music 2</button>
 
     <p id="rubenIDdisplay" onclick="showrubenID()">preparing RubenID...</p>
+
+    <button onclick="exitWebsite()">FAST EXIT</button>
     
     <script>
       let clickCount = 9990;
@@ -250,6 +252,9 @@
       });
       function showrubenID() {
         window.location.href = "https://iamtheuserjo.github.io/rubenclicker/rubenID"
+      }
+      function exitWebsite() {
+        window.location.replace("https://classroom.google.com")
       }
     </script>
   </body>
