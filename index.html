@@ -58,8 +58,8 @@
         cursor: pointer;
       }
       #exitButton {
-        left: 50%
-        top: 1%
+        left: 50%;
+        top: 1%;
         transform: translate(-50%, 0%);
       }
     </style>
@@ -211,7 +211,7 @@
         } else {
           clickCount -= 100
           upgradeCount++
-          clicksPerClick = 1 * accountLevel * (1 + rebirthCount) + (2 * upgradeCount)
+          clicksPerClick = 1 * accountLevel * (2 ** rebirthCount) + (2 * upgradeCount)
         }
         document.getElementById("clickperclickdisplay").innerHTML = clicksPerClick
         document.getElementById("clickDisplay").innerHTML = clickCount
